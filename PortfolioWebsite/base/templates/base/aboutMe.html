@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+      {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About Me</title>
+    <link href="{% static '/css/aboutMe.css' %}" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" rel="stylesheet">
+    <style>
+    </style>
+  </head>
+
+  <body>
+    <header class="menu">
+      <div class="menu-wrap">
+        <p id="portfolio"><a class="port" href="portfolio.html">
+        2021 Portfolio</a></li></p>
+        <input type="checkbox" id="checkbox">
+        <nav>
+          <ul>
+            <li class="menu"><a href="portfolio.html">Home</a></li>
+            <li class="menu"><a href="{% url 'aboutMe' %}">About Me</a></li>
+            <li class="menu"><a href="skills.html">Skills & Experience</a></li>
+            <li class="menu"><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <label for="checkbox">
+          <i class="fa fa-bars menu-icon"></i>
+        </label>
+      </div>
+    </header>
+    <div class="about">
+      <p class="hello">print('HELLO, WORLD!')</p>
+	    <div class="info">
+    	<img src="{% static '/images/5.jpg' %}" class="me" align="left">
+    		<p class="text"><i>Hello there! I'm Adalberto, an aspiring Software Engineer <br>
+    		currently based out of El Paso, TX.<br><br>
+
+    		I am in the process of completing a post-baccalaureate degree
+    		in Computer Science at Oregon State University. In May of 2019, I graduated with a Bachelor of Science in Biology from the
+    		University of Texas at El Paso, and since then have become
+    		a certified teacher in Texas, held a teaching position at
+    		a high school, and began pursuing my next degree. <br><br>
+
+    		By nature, I am a creator, in all senses of the word. After
+    		completing my Computer Science degree, my goal is to shift
+    		towards being in a position in which I can realize creativity
+    		through applications and software that is designed by me. I remain
+    		optimistic for what's to come!</i>
+    		</p>
+    	</div>
+    </div>
+</body>
+
+
+</html>
