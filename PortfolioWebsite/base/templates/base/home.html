@@ -3,12 +3,13 @@
   <head>
       {% load static %}
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Adalberto Garcia - Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
       <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+      <link rel="icon" href="https://img.icons8.com/external-becris-lineal-color-becris/64/000000/external-computer-coding-programming-becris-lineal-color-becris.png">
        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
     <link href="{% static '/css/home.css' %}" rel="stylesheet" type="text/css">
   </head>
@@ -57,10 +58,11 @@
             </div>
         </div>
     </div>
-
+    <br id="resume">
+    <br>
+    <br>
     <div class="col-12" id="colorBG1">  </div>
     <div class="col-12" id="colorBG2">  </div>
-    <br id="resume">
     <div class="container-fluid" id="container2">
         <div class="row" id="row3">
 
@@ -70,7 +72,7 @@
                                 adalbertogarcia133@gmail.com
                                 <br>(915) 329-2845
                         </p>
-                        <a href="https://drive.google.com/file/d/1VmWd8ynd9ZgkafUaTiCMTcufCxVMYOwg/view?usp=sharing" download target="_blank">
+                        <a href="https://drive.google.com/file/d/1oDfKc-xRlRIwEXP60hypcCr_nDJVTOeR/view?usp=sharing" download target="_blank">
                             <img  data-aos="fade-right" data-aos-duration="1000" data-aos-delay="100" class="img-fluid" id="resumeImg"  src="{% static '/images/9.png' %}">
                         </a>
                         <p  data-aos="fade-right" data-aos-duration="1000" data-aos-delay="50" id="resText"><i>To view a complete resum&eacute, <br>
@@ -146,8 +148,8 @@
                 </div>
         </div>
     </div>
-    <br id="relevantProjects"><br><br><br>
-    <br >
+    <br id="relevantProjects">
+    <br>
     <div class="col-12" id="colorBG3">  </div>
     <div class="col-12" id="colorBG4">  </div>
     <div class="col-12" id="colorBG5">  </div>
@@ -215,7 +217,7 @@
             <div class="col-12">
                 <h1 data-aos="fade-down" data-aos-duration="1000" data-aos-delay="350" class="display-2" id="contact">GET IN TOUCH</h1>
                 <p  data-aos="fade-right" data-aos-duration="1000" data-aos-delay="150" class="fs-5" id="contact2">Send me a message</p>
-                <form action="#resume" method="post">
+                <form id="submit-form" action="" method="post">
                     {% csrf_token %}
                     <label data-aos="fade-right" data-aos-duration="1000" data-aos-delay="150" for="fullName">Your Name <span style="color: red">*</span></label>
                     <br>
@@ -229,8 +231,9 @@
                     <br>
                     <textarea data-aos="fade-right" data-aos-duration="1000" data-aos-delay="150" id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
                     <br>
-                    <input type="submit" value="Submit">
+                    <input id="submit" type="submit" value="Submit">
                   </form>
+                  <div id="popUp" style="display: none;">Message sent. Thanks for reaching out! </div>
             </div>
         </div>
 
@@ -243,144 +246,312 @@
 });
 </script>
 <script>
-    $(window).resize(function(){
+    $(function () {
+        $('#submit-form').on('submit',function (e) {
+
+                  $.ajax({
+                    type: 'post',
+                    url: '#contactMe',
+                    data: $('#submit-form').serialize(),
+                  });
+              e.preventDefault();
+            });
+    });
+</script>
+
+<script>
+    $( "#submit" ).click(function() {
+   $( "#popUp" ).show();
+   setTimeout(function() {
+      $( "#popUp" ).hide();
+    }, 4000);
+});
+</script>
+
+<script>
+    function resizeFunction(){
         if ($(window).width() < 992) {
-            $("#container2").detach();
-            if ($("container2").length === 0) {
-                $("<div class=\"container-fluid\" id=\"container2\">\n" +
-                    "        <div class=\"row\" id=\"smallRow\">\n" +
-                    "            <div class=\"col-12\" id=\"info\">\n" +
-                    "                        <h4  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"fs-5\" id=\"name2\"><b>adalberto isaiah garcia</b></h4>\n" +
-                    "                        <p  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" id=\"info2\">\n" +
-                    "                                adalbertogarcia133@gmail.com\n" +
-                    "                                <br>(915) 329-2845\n" +
-                    "                        </p>\n" +
-                    "                        <a href=\"https://drive.google.com/file/d/1VmWd8ynd9ZgkafUaTiCMTcufCxVMYOwg/view?usp=sharing\" download target=\"_blank\">\n" +
-                    "                            <img  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"img-fluid\" id=\"resumeImg\"  src=\"{% static '/images/9.png' %}\">\n" +
-                    "                        </a>\n" +
-                    "                        <p  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"50\" id=\"resText\"><i>To view a complete resum&eacute, <br>\n" +
-                    "                        click on the image above.</i></p>\n" +
-                    "                </div>\n" +
-                    "        </div>\n" +
-                    "        <div class=\"row\" id=\"row3\">\n" +
-                    "                <div class=\"col-2\"> </div>\n" +
-                    "             <div class=\"col-5\" id=\"work\">\n" +
-                    "                    <h3  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"50\"  id=\"edu\">EDUCATION</h3>\n" +
-                    "                    <p  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"50\"  id=\"eduNames\"><b>Oregon State University</b>\n" +
-                    "                    <br>3.2/4.0 GPA\n" +
-                    "                    <br>Expected Dec. 2021\n" +
-                    "                    <br><i>Post-Baccalaureate BS, Computer Science</i>\n" +
-                    "                    <br><i id=\"after1\">Corvallis, OR</i>\n" +
-                    "                    </p>\n" +
-                    "                    <p  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"50\"  id=\"utep\">\n" +
-                    "                    <b>University of Texas at El Paso</b>\n" +
-                    "                    <br>3.8/4.0 GPA\n" +
-                    "                    <br>May 2019\n" +
-                    "                    <br><i>BS, Biological Sciences</i>\n" +
-                    "                    <br><i id=\"after2\">El Paso, TX</i>\n" +
-                    "                    </p>\n" +
-                    "                    <br>\n" +
-                    "                    <br>\n" +
-                    "                    <h3  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"100\"   id=\"skillsText\">SKILLS</h3>\n" +
-                    "                        <ul data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"100\"  >\n" +
-                    "                            <li>Python</li>\n" +
-                    "                            <li>C</li>\n" +
-                    "                            <li>SQL</li>\n" +
-                    "                            <li>HTML</li>\n" +
-                    "                            <li>CSS</li>\n" +
-                    "                            <li>JavaScript</li>\n" +
-                    "                            <li>Django</li>\n" +
-                    "                            <li>Bootstrap</li>\n" +
-                    "                            <li>jQuery</li>\n" +
-                    "                            <li>x86 Assembly Language</li>\n" +
-                    "                        </ul>\n" +
-                    "                </div>\n" +
-                    "                <div class=\"col-5\" id=\"skills\">\n" +
-                    "                    <h3  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"50\" id=\"workEx\" style=\"text-align: center\">WORK EXPERIENCE</h3>\n" +
-                    "                    <p  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"50\">\n" +
-                    "                        <b> Socorro Independent School District – Pebble Hills High School</b>\n" +
-                    "                        <br><i>Teacher Intern/ Full-Time High School Biology Teacher</i>\n" +
-                    "                        <br>Jan. 2019 – Dec. 2019\n" +
-                    "                        <br><i>El Paso, TX</i>\n" +
-                    "                        <br>\n" +
-                    "                        <br>\n" +
-                    "                        <b>The Home Depot</b>\n" +
-                    "                        <br><i>Front End & Department Sales Associate</i>\n" +
-                    "                        <br>Jan. 2017– Jan. 2019\n" +
-                    "                        <br><i>El Paso, TX</i>\n" +
-                    "                    </p>\n" +
-                    "                    <ul data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"100\" id=\"list2\">\n" +
-                    "                        <li>Linux/UNIX</li>\n" +
-                    "                        <li>Node.js</li>\n" +
-                    "                        <li>Express.js</li>\n" +
-                    "                        <li>MySQL</li>\n" +
-                    "                        <li>MariaDB</li>\n" +
-                    "                        <li>RabbitMQ</li>\n" +
-                    "                        <li>Unit Testing</li>\n" +
-                    "                        <li>Prototyping</li>\n" +
-                    "                        <li>UX/UI Design</li>\n" +
-                    "                        <li>Computer Networking Protocols</li>\n" +
-                    "                    </ul>\n" +
-                    "\n" +
-                    "                </div>\n" +
-                    "        </div>\n" +
-                    "    </div>").insertAfter("#colorBG2");
-            }
-            $("#container3").detach();
-            if ($('#projectCoL1').length === 0) {
-                $("<div class=\"container-fluid\" id=\"container3\">\n" +
-                    "        <div class=\"row\" id=\"row4\">\n" +
-                    "            <div class=\"col-12\" id=\"projectCoL1\">\n" +
-                    "                    <h1 data-aos=\"fade-left\" data-aos-duration=\"1000\" data-aos-delay=\"350\" id=\"projectTitle\">Relevant Projects</h1>\n" +
-                    "                <div data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"350\"id=\"project3\">\n" +
-                    "                   <h2><b>Portfolio Website</b></h2>\n" +
-                    "                        <p id=\"p1\">The purpose of this website is to showcase my portfolio" +
-                    "                            <br> via a digital platform. This website was made fluid and" +
-                    "                            <br> responsive by combining HTML, CSS, JavaScript, Django, " +
-                    "                            <br>Bootstrap, and AOS." +
-                    "                        </p>\n" +
-                    "                    <br>\n" +
-                    "                   <br>\n" +
-                    "                    <h2 id=\"after5\"><b>GPU Notification Bot</b></h2>\n" +
-                    "                    <p id=\"p2\">Amongst the masses of consumers aiming to purchase\n" +
-                    "                        <br> a graphics card in 2021, the GPU Notification Bot\n" +
-                    "                        <br>was made to notify me of any graphics processing\n" +
-                    "                        <br>units that became available and in stock, without\n" +
-                    "                        <br>having to constantly monitor availability on\n" +
-                    "                        <br>various websites.\n" +
-                    "                        <br>Built using BeautifulSoup and Python.\n" +
-                    "                        </p>\n" +
-                    "                <br><br><h2><b>Small Shell</b></h2>\n" +
-                    "                   <p id=\"p3\">The purpose of this project was to emulate a Bash shell in a\n" +
-                    "                       <br>Linux/UNIX environment. The shell prompts users with the ':'\n" +
-                    "                       <br>symbol, when awaiting a command, and is capable of most\n" +
-                    "                       <br>standard commands associated with any given similar shell.\n" +
-                    "                       <br>Written in the C language.\n" +
-                    "                   </p>\n" +
-                    "                <br>\n" +
-                    "                <br>\n" +
-                    "                <h2><b>Sudoku/Solution Verification Algorithm</b></h2>\n" +
-                    "                   <p id=\"p4\">This game of Sudoku was implemented to explore\n" +
-                    "                       <br>NP-Completeness, and time complexities of solution\n" +
-                    "                       <br>verification algorithms. Users are able to complete a\n" +
-                    "                       <br>game of Sudoku, upon which their solution will then be\n" +
-                    "                       <br>verified by the implemented verification algorithm.\n" +
-                    "                   </p>\n" +
-                    "                <br>\n" +
-                    "                <br>\n" +
-                    "                <h2><b>Grade Converter</b></h2>\n" +
-                    "                   <p id=\"p5\">This short project was made using a simple algorithm\n" +
-                    "                       <br>to calculate grade point averages for high school\n" +
-                    "                       <br>students who are dual-enrolled in college-level\n" +
-                    "                       <br>courses. Program takes an input Excel sheet of grades to be\n" +
-                    "                       <br>converted and proceeds to output an Excel sheet\n" +
-                    "                       <br>populated with the converted grades.\n" +
-                    "                   </p>\n" +
-                    "                </div>\n" +
-                    "        </div>\n" +
-                    "    </div>").insertAfter("#colorBG5");
+            if ($(window).height() < 400){
+                $("#container2").detach();
+                if ($("container2").length === 0) {
+                    $("<div class=\"container-fluid\" id=\"container2\">\n" +
+                        "        <div class=\"row\" id=\"smallRow\">\n" +
+                        "            <div class=\"col-12\" id=\"info\">\n" +
+                        "                        <h4  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"fs-5\" id=\"name2\"><b>adalberto isaiah garcia</b></h4>\n" +
+                        "                        <p  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" id=\"info2\">\n" +
+                        "                                adalbertogarcia133@gmail.com\n" +
+                        "                                <br>(915) 329-2845\n" +
+                        "                        </p>\n" +
+                        "                        <a href=\"https://drive.google.com/file/d/1oDfKc-xRlRIwEXP60hypcCr_nDJVTOeR/view?usp=sharing\" download target=\"_blank\">\n" +
+                        "                            <img  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"img-fluid\" id=\"resumeImg\"  src=\"{% static '/images/9.png' %}\">\n" +
+                        "                        </a>\n" +
+                        "                        <p  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"50\" id=\"resText\"><i>To view a complete resum&eacute, <br>\n" +
+                        "                        click on the image above.</i></p>\n" +
+                        "                </div>\n" +
+                        "        </div>\n" +
+                        "        <div class=\"row\" id=\"row3\">\n" +
+                        "                <div class=\"col-2\"> </div>\n" +
+                        "             <div class=\"col-5\" id=\"work\">\n" +
+                        "                    <h3  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"50\"  id=\"edu\">EDUCATION</h3>\n" +
+                        "                    <p  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"50\"  id=\"eduNames\"><b>Oregon State University</b>\n" +
+                        "                    <br>3.2/4.0 GPA\n" +
+                        "                    <br>Expected Dec. 2021\n" +
+                        "                    <br><i>Post-Baccalaureate BS, Computer Science</i>\n" +
+                        "                    <br><i id=\"after1\">Corvallis, OR</i>\n" +
+                        "                    </p>\n" +
+                        "                    <p  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"50\"  id=\"utep\">\n" +
+                        "                    <b>University of Texas at El Paso</b>\n" +
+                        "                    <br>3.8/4.0 GPA\n" +
+                        "                    <br>May 2019\n" +
+                        "                    <br><i>BS, Biological Sciences</i>\n" +
+                        "                    <br><i id=\"after2\">El Paso, TX</i>\n" +
+                        "                    </p>\n" +
+                        "                    <br>\n" +
+                        "                    <br>\n" +
+                        "                    <h3  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"100\"   id=\"skillsText\">SKILLS</h3>\n" +
+                        "                        <ul data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"100\"  >\n" +
+                        "                            <li>Python</li>\n" +
+                        "                            <li>C</li>\n" +
+                        "                            <li>SQL</li>\n" +
+                        "                            <li>HTML</li>\n" +
+                        "                            <li>CSS</li>\n" +
+                        "                            <li>JavaScript</li>\n" +
+                        "                            <li>Django</li>\n" +
+                        "                            <li>Bootstrap</li>\n" +
+                        "                            <li>jQuery</li>\n" +
+                        "                            <li>x86 Assembly Language</li>\n" +
+                        "                        </ul>\n" +
+                        "                </div>\n" +
+                        "                <div class=\"col-5\" id=\"skills\">\n" +
+                        "                    <h3  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"50\" id=\"workEx\" style=\"text-align: center\">WORK EXPERIENCE</h3>\n" +
+                        "                    <p  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"50\">\n" +
+                        "                        <b> Socorro Independent School District – Pebble Hills High School</b>\n" +
+                        "                        <br><i>Teacher Intern/ Full-Time High School Biology Teacher</i>\n" +
+                        "                        <br>Jan. 2019 – Dec. 2019\n" +
+                        "                        <br><i>El Paso, TX</i>\n" +
+                        "                        <br>\n" +
+                        "                        <br>\n" +
+                        "                        <b>The Home Depot</b>\n" +
+                        "                        <br><i>Front End & Department Sales Associate</i>\n" +
+                        "                        <br>Jan. 2017– Jan. 2019\n" +
+                        "                        <br><i>El Paso, TX</i>\n" +
+                        "                    </p>\n" +
+                        "                    <ul data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"100\" id=\"list2\">\n" +
+                        "                        <li>Linux/UNIX</li>\n" +
+                        "                        <li>Node.js</li>\n" +
+                        "                        <li>Express.js</li>\n" +
+                        "                        <li>MySQL</li>\n" +
+                        "                        <li>MariaDB</li>\n" +
+                        "                        <li>RabbitMQ</li>\n" +
+                        "                        <li>Unit Testing</li>\n" +
+                        "                        <li>Prototyping</li>\n" +
+                        "                        <li>UX/UI Design</li>\n" +
+                        "                        <li>Computer Networking Protocols</li>\n" +
+                        "                    </ul>\n" +
+                        "\n" +
+                        "                </div>\n" +
+                        "        </div>\n" +
+                        "    </div>").insertAfter("#colorBG2");
+                }
+                $("#container3").detach();
+                if ($('#projectCoL1').length === 0) {
+                    $("<div class=\"container-fluid\" id=\"container3\">\n" +
+                        "        <div class=\"row\" id=\"row4\">\n" +
+                        "            <div data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"350\" class=\"col-6\" id=\"projectCoL1\">\n" +
+                        "                    <h1 id=\"projectTitle\">Relevant\n" +
+                        "                        <br>Projects</h1>\n" +
+                        "                    <br>\n" +
+                        "                    <br>\n" +
+                        "                    <div id=\"project2\">\n" +
+                        "                    <h2>Portfolio Website</h2>\n" +
+                        "                        <p id=\"p1\">The purpose of this website is to showcase\n" +
+                        "                            <br> my portfolio via a digital platform.\n" +
+                        "                            <br>This website was made fluid and responsive\n" +
+                        "                            <br>by combining HTML, CSS, JavaScript, Django,\n" +
+                        "                            <br>Bootstrap, and AOS.\n" +
+                        "                        </p>\n" +
+                        "                   <br>\n" +
+                        "                    <h2 id=\"after5\">GPU Notification Bot</h2>\n" +
+                        "                    <p id=\"p2\">Amongst the masses of consumers aiming to purchase\n" +
+                        "                        <br> a graphics card in 2021, the GPU Notification Bot\n" +
+                        "                        <br>was made to notify me of any graphics processing\n" +
+                        "                        <br>units that became available and in stock, without\n" +
+                        "                        <br>having to constantly monitor availability on\n" +
+                        "                        <br>various websites.\n" +
+                        "                        <br>Built using BeautifulSoup and Python.\n" +
+                        "                        </p>\n" +
+                        "                    </div>\n" +
+                        "            </div>\n" +
+                        "            <div data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"350\" class=\"col-6\" id=\"projectCoL2\">\n" +
+                        "                <div id=\"project3\">\n" +
+                        "                    <h2>Small Shell</h2>\n" +
+                        "                       <p id=\"p3\">The purpose of this project was to emulate a Bash shell in a\n" +
+                        "                           <br>Linux/UNIX environment. The shell prompts users with the ':'\n" +
+                        "                           <br>symbol, when awaiting a command, and is capable of most\n" +
+                        "                           <br>standard commands associated with any given similar shell.\n" +
+                        "                           <br>Written in the C language.\n" +
+                        "                       </p>\n" +
+                        "                    <br>\n" +
+                        "                    <h2>Sudoku/Solution Verification Algorithm</h2>\n" +
+                        "                       <p id=\"p4\">This game of Sudoku was implemented to explore\n" +
+                        "                           <br>NP-Completeness, and time complexities of solution\n" +
+                        "                           <br>verification algorithms. Users are able to complete a\n" +
+                        "                           <br>game of Sudoku, upon which their solution will then be\n" +
+                        "                           <br>verified by the implemented verification algorithm.\n" +
+                        "                       </p>\n" +
+                        "                    <br>\n" +
+                        "                    <h2>Grade Converter</h2>\n" +
+                        "                       <p id=\"p5\">This short project was made using a simple algorithm\n" +
+                        "                           <br>to calculate grade point averages for high school\n" +
+                        "                           <br>students who are dual-enrolled in college-level\n" +
+                        "                           <br>courses. Program takes an input Excel sheet of grades to be\n" +
+                        "                           <br>converted and proceeds to output an Excel sheet\n" +
+                        "                           <br>populated with the converted grades.\n" +
+                        "                       </p>\n" +
+                        "                </div>\n" +
+                        "            </div>\n" +
+                        "        </div>\n" +
+                        "    </div>").insertAfter("#colorBG5");
+                }
             }
 
+            else{
+                $("#container2").detach();
+                if ($("container2").length === 0) {
+                    $("<div class=\"container-fluid\" id=\"container2\">\n" +
+                        "        <div class=\"row\" id=\"smallRow\">\n" +
+                        "            <div class=\"col-12\" id=\"info\">\n" +
+                        "                        <h4  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"fs-5\" id=\"name2\"><b>adalberto isaiah garcia</b></h4>\n" +
+                        "                        <p  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" id=\"info2\">\n" +
+                        "                                adalbertogarcia133@gmail.com\n" +
+                        "                                <br>(915) 329-2845\n" +
+                        "                        </p>\n" +
+                        "                        <a href=\"https://drive.google.com/file/d/1oDfKc-xRlRIwEXP60hypcCr_nDJVTOeR/view?usp=sharing\" download target=\"_blank\">\n" +
+                        "                            <img  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"img-fluid\" id=\"resumeImg\"  src=\"{% static '/images/9.png' %}\">\n" +
+                        "                        </a>\n" +
+                        "                        <p  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"50\" id=\"resText\"><i>To view a complete resum&eacute, <br>\n" +
+                        "                        click on the image above.</i></p>\n" +
+                        "                </div>\n" +
+                        "        </div>\n" +
+                        "        <div class=\"row\" id=\"row3\">\n" +
+                        "                <div class=\"col-2\"> </div>\n" +
+                        "             <div class=\"col-5\" id=\"work\">\n" +
+                        "                    <h3  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"50\"  id=\"edu\">EDUCATION</h3>\n" +
+                        "                    <p  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"50\"  id=\"eduNames\"><b>Oregon State University</b>\n" +
+                        "                    <br>3.2/4.0 GPA\n" +
+                        "                    <br>Expected Dec. 2021\n" +
+                        "                    <br><i>Post-Baccalaureate BS, Computer Science</i>\n" +
+                        "                    <br><i id=\"after1\">Corvallis, OR</i>\n" +
+                        "                    </p>\n" +
+                        "                    <p  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"50\"  id=\"utep\">\n" +
+                        "                    <b>University of Texas at El Paso</b>\n" +
+                        "                    <br>3.8/4.0 GPA\n" +
+                        "                    <br>May 2019\n" +
+                        "                    <br><i>BS, Biological Sciences</i>\n" +
+                        "                    <br><i id=\"after2\">El Paso, TX</i>\n" +
+                        "                    </p>\n" +
+                        "                    <br>\n" +
+                        "                    <br>\n" +
+                        "                    <h3  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"100\"   id=\"skillsText\">SKILLS</h3>\n" +
+                        "                        <ul data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"100\"  >\n" +
+                        "                            <li>Python</li>\n" +
+                        "                            <li>C</li>\n" +
+                        "                            <li>SQL</li>\n" +
+                        "                            <li>HTML</li>\n" +
+                        "                            <li>CSS</li>\n" +
+                        "                            <li>JavaScript</li>\n" +
+                        "                            <li>Django</li>\n" +
+                        "                            <li>Bootstrap</li>\n" +
+                        "                            <li>jQuery</li>\n" +
+                        "                            <li>x86 Assembly Language</li>\n" +
+                        "                        </ul>\n" +
+                        "                </div>\n" +
+                        "                <div class=\"col-5\" id=\"skills\">\n" +
+                        "                    <h3  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"50\" id=\"workEx\" style=\"text-align: center\">WORK EXPERIENCE</h3>\n" +
+                        "                    <p  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"50\">\n" +
+                        "                        <b> Socorro Independent School District – Pebble Hills High School</b>\n" +
+                        "                        <br><i>Teacher Intern/ Full-Time High School Biology Teacher</i>\n" +
+                        "                        <br>Jan. 2019 – Dec. 2019\n" +
+                        "                        <br><i>El Paso, TX</i>\n" +
+                        "                        <br>\n" +
+                        "                        <br>\n" +
+                        "                        <b>The Home Depot</b>\n" +
+                        "                        <br><i>Front End & Department Sales Associate</i>\n" +
+                        "                        <br>Jan. 2017– Jan. 2019\n" +
+                        "                        <br><i>El Paso, TX</i>\n" +
+                        "                    </p>\n" +
+                        "                    <ul data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"100\" id=\"list2\">\n" +
+                        "                        <li>Linux/UNIX</li>\n" +
+                        "                        <li>Node.js</li>\n" +
+                        "                        <li>Express.js</li>\n" +
+                        "                        <li>MySQL</li>\n" +
+                        "                        <li>MariaDB</li>\n" +
+                        "                        <li>RabbitMQ</li>\n" +
+                        "                        <li>Unit Testing</li>\n" +
+                        "                        <li>Prototyping</li>\n" +
+                        "                        <li>UX/UI Design</li>\n" +
+                        "                        <li>Computer Networking Protocols</li>\n" +
+                        "                    </ul>\n" +
+                        "\n" +
+                        "                </div>\n" +
+                        "        </div>\n" +
+                        "    </div>").insertAfter("#colorBG2");
+                }
+                $("#container3").detach();
+                if ($('#projectCoL1').length === 0) {
+                    $("<div class=\"container-fluid\" id=\"container3\">\n" +
+                        "        <div class=\"row\" id=\"row4\">\n" +
+                        "            <div class=\"col-12\" id=\"projectCoL1\">\n" +
+                        "                    <h1 data-aos=\"fade-left\" data-aos-duration=\"1000\" data-aos-delay=\"350\" id=\"projectTitle\">Relevant Projects</h1>\n" +
+                        "                <div data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"350\"id=\"project3\">\n" +
+                        "                   <h2><b>Portfolio Website</b></h2>\n" +
+                        "                        <p id=\"p1\">The purpose of this website is to showcase my portfolio" +
+                        "                            <br> via a digital platform. This website was made fluid and" +
+                        "                            <br> responsive by combining HTML, CSS, JavaScript, Django, " +
+                        "                            <br>Bootstrap, and AOS." +
+                        "                        </p>\n" +
+                        "                    <br>\n" +
+                        "                   <br>\n" +
+                        "                    <h2 id=\"after5\"><b>GPU Notification Bot</b></h2>\n" +
+                        "                    <p id=\"p2\">Amongst the masses of consumers aiming to purchase\n" +
+                        "                        <br> a graphics card in 2021, the GPU Notification Bot\n" +
+                        "                        <br>was made to notify me of any graphics processing\n" +
+                        "                        <br>units that became available and in stock, without\n" +
+                        "                        <br>having to constantly monitor availability on\n" +
+                        "                        <br>various websites.\n" +
+                        "                        <br>Built using BeautifulSoup and Python.\n" +
+                        "                        </p>\n" +
+                        "                <br><br><h2><b>Small Shell</b></h2>\n" +
+                        "                   <p id=\"p3\">The purpose of this project was to emulate a Bash shell in a\n" +
+                        "                       <br>Linux/UNIX environment. The shell prompts users with the ':'\n" +
+                        "                       <br>symbol, when awaiting a command, and is capable of most\n" +
+                        "                       <br>standard commands associated with any given similar shell.\n" +
+                        "                       <br>Written in the C language.\n" +
+                        "                   </p>\n" +
+                        "                <br>\n" +
+                        "                <br>\n" +
+                        "                <h2><b>Sudoku/Solution Verification Algorithm</b></h2>\n" +
+                        "                   <p id=\"p4\">This game of Sudoku was implemented to explore\n" +
+                        "                       <br>NP-Completeness, and time complexities of solution\n" +
+                        "                       <br>verification algorithms. Users are able to complete a\n" +
+                        "                       <br>game of Sudoku, upon which their solution will then be\n" +
+                        "                       <br>verified by the implemented verification algorithm.\n" +
+                        "                   </p>\n" +
+                        "                <br>\n" +
+                        "                <br>\n" +
+                        "                <h2><b>Grade Converter</b></h2>\n" +
+                        "                   <p id=\"p5\">This short project was made using a simple algorithm\n" +
+                        "                       <br>to calculate grade point averages for high school\n" +
+                        "                       <br>students who are dual-enrolled in college-level\n" +
+                        "                       <br>courses. Program takes an input Excel sheet of grades to be\n" +
+                        "                       <br>converted and proceeds to output an Excel sheet\n" +
+                        "                       <br>populated with the converted grades.\n" +
+                        "                   </p>\n" +
+                        "                </div>\n" +
+                        "        </div>\n" +
+                        "    </div>").insertAfter("#colorBG5");
+                }
+            }
         }
 
         if ($(window).width() > 992) {
@@ -455,7 +626,7 @@
                     "                                adalbertogarcia133@gmail.com\n" +
                     "                                <br>(915) 329-2845\n" +
                     "                        </p>\n" +
-                    "                        <a href=\"https://drive.google.com/file/d/1VmWd8ynd9ZgkafUaTiCMTcufCxVMYOwg/view?usp=sharing\" download target=\"_blank\">\n" +
+                    "                        <a href=\"https://drive.google.com/file/d/1oDfKc-xRlRIwEXP60hypcCr_nDJVTOeR/view?usp=sharing\" download target=\"_blank\">\n" +
                     "                            <img  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"img-fluid\" id=\"resumeImg\"  src=\"{% static '/images/9.png' %}\">\n" +
                     "                        </a>\n" +
                     "                        <p  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"50\" id=\"resText\"><i>To view a complete resum&eacute, <br>\n" +
@@ -532,12 +703,471 @@
                     "        </div>\n" +
                     "    </div>").insertAfter("#colorBG2");
             }
+        }
+    }
 
+    var timeOutFunctionId;
+    window.addEventListener('DOMContentLoaded',function(){
+        var width = $(window).width();
+         window.addEventListener("resize", function() {
+            if($(window).width() != width) {
+               // do something
+                clearTimeout(timeOutFunctionId);
+                timeOutFunctionId = setTimeout(resizeFunction, 500);
+                width = $(window).width();
+            }
+         });
+    });
+</script>
+
+<script>
+    function resizeFunction(){
+        if ($(window).width() < 992) {
+            if ($(window).height() < 400){
+                $("#container2").detach();
+                if ($("container2").length === 0) {
+                    $("<div class=\"container-fluid\" id=\"container2\">\n" +
+                        "        <div class=\"row\" id=\"smallRow\">\n" +
+                        "            <div class=\"col-12\" id=\"info\">\n" +
+                        "                        <h4  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"fs-5\" id=\"name2\"><b>adalberto isaiah garcia</b></h4>\n" +
+                        "                        <p  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" id=\"info2\">\n" +
+                        "                                adalbertogarcia133@gmail.com\n" +
+                        "                                <br>(915) 329-2845\n" +
+                        "                        </p>\n" +
+                        "                        <a href=\"https://drive.google.com/file/d/1oDfKc-xRlRIwEXP60hypcCr_nDJVTOeR/view?usp=sharing\" download target=\"_blank\">\n" +
+                        "                            <img  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"img-fluid\" id=\"resumeImg\"  src=\"{% static '/images/9.png' %}\">\n" +
+                        "                        </a>\n" +
+                        "                        <p  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"50\" id=\"resText\"><i>To view a complete resum&eacute, <br>\n" +
+                        "                        click on the image above.</i></p>\n" +
+                        "                </div>\n" +
+                        "        </div>\n" +
+                        "        <div class=\"row\" id=\"row3\">\n" +
+                        "                <div class=\"col-2\"> </div>\n" +
+                        "             <div class=\"col-5\" id=\"work\">\n" +
+                        "                    <h3  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"50\"  id=\"edu\">EDUCATION</h3>\n" +
+                        "                    <p  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"50\"  id=\"eduNames\"><b>Oregon State University</b>\n" +
+                        "                    <br>3.2/4.0 GPA\n" +
+                        "                    <br>Expected Dec. 2021\n" +
+                        "                    <br><i>Post-Baccalaureate BS, Computer Science</i>\n" +
+                        "                    <br><i id=\"after1\">Corvallis, OR</i>\n" +
+                        "                    </p>\n" +
+                        "                    <p  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"50\"  id=\"utep\">\n" +
+                        "                    <b>University of Texas at El Paso</b>\n" +
+                        "                    <br>3.8/4.0 GPA\n" +
+                        "                    <br>May 2019\n" +
+                        "                    <br><i>BS, Biological Sciences</i>\n" +
+                        "                    <br><i id=\"after2\">El Paso, TX</i>\n" +
+                        "                    </p>\n" +
+                        "                    <br>\n" +
+                        "                    <br>\n" +
+                        "                    <h3  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"100\"   id=\"skillsText\">SKILLS</h3>\n" +
+                        "                        <ul data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"100\"  >\n" +
+                        "                            <li>Python</li>\n" +
+                        "                            <li>C</li>\n" +
+                        "                            <li>SQL</li>\n" +
+                        "                            <li>HTML</li>\n" +
+                        "                            <li>CSS</li>\n" +
+                        "                            <li>JavaScript</li>\n" +
+                        "                            <li>Django</li>\n" +
+                        "                            <li>Bootstrap</li>\n" +
+                        "                            <li>jQuery</li>\n" +
+                        "                            <li>x86 Assembly Language</li>\n" +
+                        "                        </ul>\n" +
+                        "                </div>\n" +
+                        "                <div class=\"col-5\" id=\"skills\">\n" +
+                        "                    <h3  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"50\" id=\"workEx\" style=\"text-align: center\">WORK EXPERIENCE</h3>\n" +
+                        "                    <p  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"50\">\n" +
+                        "                        <b> Socorro Independent School District – Pebble Hills High School</b>\n" +
+                        "                        <br><i>Teacher Intern/ Full-Time High School Biology Teacher</i>\n" +
+                        "                        <br>Jan. 2019 – Dec. 2019\n" +
+                        "                        <br><i>El Paso, TX</i>\n" +
+                        "                        <br>\n" +
+                        "                        <br>\n" +
+                        "                        <b>The Home Depot</b>\n" +
+                        "                        <br><i>Front End & Department Sales Associate</i>\n" +
+                        "                        <br>Jan. 2017– Jan. 2019\n" +
+                        "                        <br><i>El Paso, TX</i>\n" +
+                        "                    </p>\n" +
+                        "                    <ul data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"100\" id=\"list2\">\n" +
+                        "                        <li>Linux/UNIX</li>\n" +
+                        "                        <li>Node.js</li>\n" +
+                        "                        <li>Express.js</li>\n" +
+                        "                        <li>MySQL</li>\n" +
+                        "                        <li>MariaDB</li>\n" +
+                        "                        <li>RabbitMQ</li>\n" +
+                        "                        <li>Unit Testing</li>\n" +
+                        "                        <li>Prototyping</li>\n" +
+                        "                        <li>UX/UI Design</li>\n" +
+                        "                        <li>Computer Networking Protocols</li>\n" +
+                        "                    </ul>\n" +
+                        "\n" +
+                        "                </div>\n" +
+                        "        </div>\n" +
+                        "    </div>").insertAfter("#colorBG2");
+                }
+                $("#container3").detach();
+                if ($('#projectCoL1').length === 0) {
+                    $("<div class=\"container-fluid\" id=\"container3\">\n" +
+                        "        <div class=\"row\" id=\"row4\">\n" +
+                        "            <div data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"350\" class=\"col-6\" id=\"projectCoL1\">\n" +
+                        "                    <h1 id=\"projectTitle\">Relevant\n" +
+                        "                        <br>Projects</h1>\n" +
+                        "                    <br>\n" +
+                        "                    <br>\n" +
+                        "                    <div id=\"project2\">\n" +
+                        "                    <h2>Portfolio Website</h2>\n" +
+                        "                        <p id=\"p1\">The purpose of this website is to showcase\n" +
+                        "                            <br> my portfolio via a digital platform.\n" +
+                        "                            <br>This website was made fluid and responsive\n" +
+                        "                            <br>by combining HTML, CSS, JavaScript, Django,\n" +
+                        "                            <br>Bootstrap, and AOS.\n" +
+                        "                        </p>\n" +
+                        "                   <br>\n" +
+                        "                    <h2 id=\"after5\">GPU Notification Bot</h2>\n" +
+                        "                    <p id=\"p2\">Amongst the masses of consumers aiming to purchase\n" +
+                        "                        <br> a graphics card in 2021, the GPU Notification Bot\n" +
+                        "                        <br>was made to notify me of any graphics processing\n" +
+                        "                        <br>units that became available and in stock, without\n" +
+                        "                        <br>having to constantly monitor availability on\n" +
+                        "                        <br>various websites.\n" +
+                        "                        <br>Built using BeautifulSoup and Python.\n" +
+                        "                        </p>\n" +
+                        "                    </div>\n" +
+                        "            </div>\n" +
+                        "            <div data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"350\" class=\"col-6\" id=\"projectCoL2\">\n" +
+                        "                <div id=\"project3\">\n" +
+                        "                    <h2>Small Shell</h2>\n" +
+                        "                       <p id=\"p3\">The purpose of this project was to emulate a Bash shell in a\n" +
+                        "                           <br>Linux/UNIX environment. The shell prompts users with the ':'\n" +
+                        "                           <br>symbol, when awaiting a command, and is capable of most\n" +
+                        "                           <br>standard commands associated with any given similar shell.\n" +
+                        "                           <br>Written in the C language.\n" +
+                        "                       </p>\n" +
+                        "                    <br>\n" +
+                        "                    <h2>Sudoku/Solution Verification Algorithm</h2>\n" +
+                        "                       <p id=\"p4\">This game of Sudoku was implemented to explore\n" +
+                        "                           <br>NP-Completeness, and time complexities of solution\n" +
+                        "                           <br>verification algorithms. Users are able to complete a\n" +
+                        "                           <br>game of Sudoku, upon which their solution will then be\n" +
+                        "                           <br>verified by the implemented verification algorithm.\n" +
+                        "                       </p>\n" +
+                        "                    <br>\n" +
+                        "                    <h2>Grade Converter</h2>\n" +
+                        "                       <p id=\"p5\">This short project was made using a simple algorithm\n" +
+                        "                           <br>to calculate grade point averages for high school\n" +
+                        "                           <br>students who are dual-enrolled in college-level\n" +
+                        "                           <br>courses. Program takes an input Excel sheet of grades to be\n" +
+                        "                           <br>converted and proceeds to output an Excel sheet\n" +
+                        "                           <br>populated with the converted grades.\n" +
+                        "                       </p>\n" +
+                        "                </div>\n" +
+                        "            </div>\n" +
+                        "        </div>\n" +
+                        "    </div>").insertAfter("#colorBG5");
+                }
+            }
+
+            else{
+                $("#container2").detach();
+                if ($("container2").length === 0) {
+                    $("<div class=\"container-fluid\" id=\"container2\">\n" +
+                        "        <div class=\"row\" id=\"smallRow\">\n" +
+                        "            <div class=\"col-12\" id=\"info\">\n" +
+                        "                        <h4  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"fs-5\" id=\"name2\"><b>adalberto isaiah garcia</b></h4>\n" +
+                        "                        <p  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" id=\"info2\">\n" +
+                        "                                adalbertogarcia133@gmail.com\n" +
+                        "                                <br>(915) 329-2845\n" +
+                        "                        </p>\n" +
+                        "                        <a href=\"https://drive.google.com/file/d/1oDfKc-xRlRIwEXP60hypcCr_nDJVTOeR/view?usp=sharing\" download target=\"_blank\">\n" +
+                        "                            <img  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"img-fluid\" id=\"resumeImg\"  src=\"{% static '/images/9.png' %}\">\n" +
+                        "                        </a>\n" +
+                        "                        <p  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"50\" id=\"resText\"><i>To view a complete resum&eacute, <br>\n" +
+                        "                        click on the image above.</i></p>\n" +
+                        "                </div>\n" +
+                        "        </div>\n" +
+                        "        <div class=\"row\" id=\"row3\">\n" +
+                        "                <div class=\"col-2\"> </div>\n" +
+                        "             <div class=\"col-5\" id=\"work\">\n" +
+                        "                    <h3  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"50\"  id=\"edu\">EDUCATION</h3>\n" +
+                        "                    <p  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"50\"  id=\"eduNames\"><b>Oregon State University</b>\n" +
+                        "                    <br>3.2/4.0 GPA\n" +
+                        "                    <br>Expected Dec. 2021\n" +
+                        "                    <br><i>Post-Baccalaureate BS, Computer Science</i>\n" +
+                        "                    <br><i id=\"after1\">Corvallis, OR</i>\n" +
+                        "                    </p>\n" +
+                        "                    <p  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"50\"  id=\"utep\">\n" +
+                        "                    <b>University of Texas at El Paso</b>\n" +
+                        "                    <br>3.8/4.0 GPA\n" +
+                        "                    <br>May 2019\n" +
+                        "                    <br><i>BS, Biological Sciences</i>\n" +
+                        "                    <br><i id=\"after2\">El Paso, TX</i>\n" +
+                        "                    </p>\n" +
+                        "                    <br>\n" +
+                        "                    <br>\n" +
+                        "                    <h3  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"100\"   id=\"skillsText\">SKILLS</h3>\n" +
+                        "                        <ul data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"100\"  >\n" +
+                        "                            <li>Python</li>\n" +
+                        "                            <li>C</li>\n" +
+                        "                            <li>SQL</li>\n" +
+                        "                            <li>HTML</li>\n" +
+                        "                            <li>CSS</li>\n" +
+                        "                            <li>JavaScript</li>\n" +
+                        "                            <li>Django</li>\n" +
+                        "                            <li>Bootstrap</li>\n" +
+                        "                            <li>jQuery</li>\n" +
+                        "                            <li>x86 Assembly Language</li>\n" +
+                        "                        </ul>\n" +
+                        "                </div>\n" +
+                        "                <div class=\"col-5\" id=\"skills\">\n" +
+                        "                    <h3  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"50\" id=\"workEx\" style=\"text-align: center\">WORK EXPERIENCE</h3>\n" +
+                        "                    <p  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"50\">\n" +
+                        "                        <b> Socorro Independent School District – Pebble Hills High School</b>\n" +
+                        "                        <br><i>Teacher Intern/ Full-Time High School Biology Teacher</i>\n" +
+                        "                        <br>Jan. 2019 – Dec. 2019\n" +
+                        "                        <br><i>El Paso, TX</i>\n" +
+                        "                        <br>\n" +
+                        "                        <br>\n" +
+                        "                        <b>The Home Depot</b>\n" +
+                        "                        <br><i>Front End & Department Sales Associate</i>\n" +
+                        "                        <br>Jan. 2017– Jan. 2019\n" +
+                        "                        <br><i>El Paso, TX</i>\n" +
+                        "                    </p>\n" +
+                        "                    <ul data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"100\" id=\"list2\">\n" +
+                        "                        <li>Linux/UNIX</li>\n" +
+                        "                        <li>Node.js</li>\n" +
+                        "                        <li>Express.js</li>\n" +
+                        "                        <li>MySQL</li>\n" +
+                        "                        <li>MariaDB</li>\n" +
+                        "                        <li>RabbitMQ</li>\n" +
+                        "                        <li>Unit Testing</li>\n" +
+                        "                        <li>Prototyping</li>\n" +
+                        "                        <li>UX/UI Design</li>\n" +
+                        "                        <li>Computer Networking Protocols</li>\n" +
+                        "                    </ul>\n" +
+                        "\n" +
+                        "                </div>\n" +
+                        "        </div>\n" +
+                        "    </div>").insertAfter("#colorBG2");
+                }
+                $("#container3").detach();
+                if ($('#projectCoL1').length === 0) {
+                    $("<div class=\"container-fluid\" id=\"container3\">\n" +
+                        "        <div class=\"row\" id=\"row4\">\n" +
+                        "            <div class=\"col-12\" id=\"projectCoL1\">\n" +
+                        "                    <h1 data-aos=\"fade-left\" data-aos-duration=\"1000\" data-aos-delay=\"350\" id=\"projectTitle\">Relevant Projects</h1>\n" +
+                        "                <div data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"350\"id=\"project3\">\n" +
+                        "                   <h2><b>Portfolio Website</b></h2>\n" +
+                        "                        <p id=\"p1\">The purpose of this website is to showcase my portfolio" +
+                        "                            <br> via a digital platform. This website was made fluid and" +
+                        "                            <br> responsive by combining HTML, CSS, JavaScript, Django, " +
+                        "                            <br>Bootstrap, and AOS." +
+                        "                        </p>\n" +
+                        "                    <br>\n" +
+                        "                   <br>\n" +
+                        "                    <h2 id=\"after5\"><b>GPU Notification Bot</b></h2>\n" +
+                        "                    <p id=\"p2\">Amongst the masses of consumers aiming to purchase\n" +
+                        "                        <br> a graphics card in 2021, the GPU Notification Bot\n" +
+                        "                        <br>was made to notify me of any graphics processing\n" +
+                        "                        <br>units that became available and in stock, without\n" +
+                        "                        <br>having to constantly monitor availability on\n" +
+                        "                        <br>various websites.\n" +
+                        "                        <br>Built using BeautifulSoup and Python.\n" +
+                        "                        </p>\n" +
+                        "                <br><br><h2><b>Small Shell</b></h2>\n" +
+                        "                   <p id=\"p3\">The purpose of this project was to emulate a Bash shell in a\n" +
+                        "                       <br>Linux/UNIX environment. The shell prompts users with the ':'\n" +
+                        "                       <br>symbol, when awaiting a command, and is capable of most\n" +
+                        "                       <br>standard commands associated with any given similar shell.\n" +
+                        "                       <br>Written in the C language.\n" +
+                        "                   </p>\n" +
+                        "                <br>\n" +
+                        "                <br>\n" +
+                        "                <h2><b>Sudoku/Solution Verification Algorithm</b></h2>\n" +
+                        "                   <p id=\"p4\">This game of Sudoku was implemented to explore\n" +
+                        "                       <br>NP-Completeness, and time complexities of solution\n" +
+                        "                       <br>verification algorithms. Users are able to complete a\n" +
+                        "                       <br>game of Sudoku, upon which their solution will then be\n" +
+                        "                       <br>verified by the implemented verification algorithm.\n" +
+                        "                   </p>\n" +
+                        "                <br>\n" +
+                        "                <br>\n" +
+                        "                <h2><b>Grade Converter</b></h2>\n" +
+                        "                   <p id=\"p5\">This short project was made using a simple algorithm\n" +
+                        "                       <br>to calculate grade point averages for high school\n" +
+                        "                       <br>students who are dual-enrolled in college-level\n" +
+                        "                       <br>courses. Program takes an input Excel sheet of grades to be\n" +
+                        "                       <br>converted and proceeds to output an Excel sheet\n" +
+                        "                       <br>populated with the converted grades.\n" +
+                        "                   </p>\n" +
+                        "                </div>\n" +
+                        "        </div>\n" +
+                        "    </div>").insertAfter("#colorBG5");
+                }
+            }
         }
 
-    });
+        if ($(window).width() > 992) {
+            $("#container3").detach();
+            if ($('#projectCoL1').length === 0) {
+                $("<div class=\"container-fluid\" id=\"container3\">\n" +
+                    "        <div class=\"row\" id=\"row4\">\n" +
+                    "            <div data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"350\" class=\"col-6\" id=\"projectCoL1\">\n" +
+                    "                    <h1 id=\"projectTitle\">Relevant\n" +
+                    "                        <br>Projects</h1>\n" +
+                    "                    <br>\n" +
+                    "                    <br>\n" +
+                    "                    <div id=\"project2\">\n" +
+                    "                    <h2>Portfolio Website</h2>\n" +
+                    "                        <p id=\"p1\">The purpose of this website is to showcase\n" +
+                    "                            <br> my portfolio via a digital platform.\n" +
+                    "                            <br>This website was made fluid and responsive\n" +
+                    "                            <br>by combining HTML, CSS, JavaScript, Django,\n" +
+                    "                            <br>Bootstrap, and AOS.\n" +
+                    "                        </p>\n" +
+                    "                   <br>\n" +
+                    "                    <h2 id=\"after5\">GPU Notification Bot</h2>\n" +
+                    "                    <p id=\"p2\">Amongst the masses of consumers aiming to purchase\n" +
+                    "                        <br> a graphics card in 2021, the GPU Notification Bot\n" +
+                    "                        <br>was made to notify me of any graphics processing\n" +
+                    "                        <br>units that became available and in stock, without\n" +
+                    "                        <br>having to constantly monitor availability on\n" +
+                    "                        <br>various websites.\n" +
+                    "                        <br>Built using BeautifulSoup and Python.\n" +
+                    "                        </p>\n" +
+                    "                    </div>\n" +
+                    "            </div>\n" +
+                    "            <div data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"350\" class=\"col-6\" id=\"projectCoL2\">\n" +
+                    "                <div id=\"project3\">\n" +
+                    "                    <h2>Small Shell</h2>\n" +
+                    "                       <p id=\"p3\">The purpose of this project was to emulate a Bash shell in a\n" +
+                    "                           <br>Linux/UNIX environment. The shell prompts users with the ':'\n" +
+                    "                           <br>symbol, when awaiting a command, and is capable of most\n" +
+                    "                           <br>standard commands associated with any given similar shell.\n" +
+                    "                           <br>Written in the C language.\n" +
+                    "                       </p>\n" +
+                    "                    <br>\n" +
+                    "                    <h2>Sudoku/Solution Verification Algorithm</h2>\n" +
+                    "                       <p id=\"p4\">This game of Sudoku was implemented to explore\n" +
+                    "                           <br>NP-Completeness, and time complexities of solution\n" +
+                    "                           <br>verification algorithms. Users are able to complete a\n" +
+                    "                           <br>game of Sudoku, upon which their solution will then be\n" +
+                    "                           <br>verified by the implemented verification algorithm.\n" +
+                    "                       </p>\n" +
+                    "                    <br>\n" +
+                    "                    <h2>Grade Converter</h2>\n" +
+                    "                       <p id=\"p5\">This short project was made using a simple algorithm\n" +
+                    "                           <br>to calculate grade point averages for high school\n" +
+                    "                           <br>students who are dual-enrolled in college-level\n" +
+                    "                           <br>courses. Program takes an input Excel sheet of grades to be\n" +
+                    "                           <br>converted and proceeds to output an Excel sheet\n" +
+                    "                           <br>populated with the converted grades.\n" +
+                    "                       </p>\n" +
+                    "                </div>\n" +
+                    "            </div>\n" +
+                    "        </div>\n" +
+                    "    </div>").insertAfter("#colorBG5");
+            }
+            $("#container2").detach();
+            if ($('#container2').length === 0) {
+                $("<div class=\"container-fluid\" id=\"container2\">\n" +
+                    "        <div class=\"row\" id=\"row3\">\n" +
+                    "\n" +
+                    "                <div class=\"col-4\" id=\"info\">\n" +
+                    "                        <h4  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"fs-5\" id=\"name2\"><b>adalberto isaiah garcia</b></h4>\n" +
+                    "                        <p  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" id=\"info2\">\n" +
+                    "                                adalbertogarcia133@gmail.com\n" +
+                    "                                <br>(915) 329-2845\n" +
+                    "                        </p>\n" +
+                    "                        <a href=\"https://drive.google.com/file/d/1oDfKc-xRlRIwEXP60hypcCr_nDJVTOeR/view?usp=sharing\" download target=\"_blank\">\n" +
+                    "                            <img  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"img-fluid\" id=\"resumeImg\"  src=\"{% static '/images/9.png' %}\">\n" +
+                    "                        </a>\n" +
+                    "                        <p  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"50\" id=\"resText\"><i>To view a complete resum&eacute, <br>\n" +
+                    "                        click on the image above.</i></p>\n" +
+                    "                </div>\n" +
+                    "                <div class=\"col-4\" id=\"work\">\n" +
+                    "                    <h3  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"50\"  id=\"edu\">EDUCATION</h3>\n" +
+                    "                    <p  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"50\"  id=\"eduNames\"><b>Oregon State University</b>\n" +
+                    "                    <br>3.2/4.0 GPA\n" +
+                    "                    <br>Expected Dec. 2021\n" +
+                    "                    <br><i>Post-Baccalaureate BS, Computer Science</i>\n" +
+                    "                    <br><i id=\"after1\">Corvallis, OR</i>\n" +
+                    "                    </p>\n" +
+                    "                    <ul  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"50\"  id=\"listCourses\">\n" +
+                    "                        <li>Relevant Coursework: Analysis of Algorithms, Data Structures,\n" +
+                    "                            <br>Operating Systems, Discrete Structures in Computer Science,\n" +
+                    "                            <br>Software Engineering I & II, Web Development, Computer Networks,\n" +
+                    "                            <br>Computer Architecture & Assembly Language, Introduction to\n" +
+                    "                            <br>Databases, Usability Engineering\n" +
+                    "                        </li>\n" +
+                    "                    </ul>\n" +
+                    "                    <p  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"50\"  id=\"utep\">\n" +
+                    "                    <b>University of Texas at El Paso</b>\n" +
+                    "                    <br>3.8/4.0 GPA\n" +
+                    "                    <br>May 2019\n" +
+                    "                    <br><i>BS, Biological Sciences</i>\n" +
+                    "                    <br><i id=\"after2\">El Paso, TX</i>\n" +
+                    "                    <ul data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"50\"   id=\"honors\">\n" +
+                    "                        <li>Graduated Cum Laude with Dean’s Honors</li>\n" +
+                    "                    </ul>\n" +
+                    "\n" +
+                    "                    </p>\n" +
+                    "                    <br>\n" +
+                    "                    <br>\n" +
+                    "                    <h3  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"50\" id=\"workEx\">WORK EXPERIENCE</h3>\n" +
+                    "                    <p  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"50\">\n" +
+                    "                        <b> Socorro Independent School District – Pebble Hills High School</b>\n" +
+                    "                        <br><i>Teacher Intern/ Full-Time High School Biology Teacher</i>\n" +
+                    "                        <br>Jan. 2019 – Dec. 2019\n" +
+                    "                        <br><i>El Paso, TX</i>\n" +
+                    "                        <br>\n" +
+                    "                        <br>\n" +
+                    "                        <b>The Home Depot</b>\n" +
+                    "                        <br><i>Front End & Department Sales Associate</i>\n" +
+                    "                        <br>Jan. 2017– Jan. 2019\n" +
+                    "                        <br><i>El Paso, TX</i>\n" +
+                    "                    </p>\n" +
+                    "                </div>\n" +
+                    "                <div class=\"col-4\" id=\"skills\">\n" +
+                    "                    <h3  data-aos=\"fade-down\" data-aos-duration=\"1000\" data-aos-delay=\"350\"   id=\"skillsText\">SKILLS</h3>\n" +
+                    "                        <ul data-aos=\"fade-down\" data-aos-duration=\"1000\" data-aos-delay=\"350\"  >\n" +
+                    "                            <li>Python</li>\n" +
+                    "                            <li>C</li>\n" +
+                    "                            <li>SQL</li>\n" +
+                    "                            <li>HTML</li>\n" +
+                    "                            <li>CSS</li>\n" +
+                    "                            <li>JavaScript</li>\n" +
+                    "                            <li>Django</li>\n" +
+                    "                            <li>Bootstrap</li>\n" +
+                    "                            <li>jQuery</li>\n" +
+                    "                            <li>x86 Assembly Language</li>\n" +
+                    "                            <li>Linux/UNIX</li>\n" +
+                    "                            <li>Node.js</li>\n" +
+                    "                            <li>Express.js</li>\n" +
+                    "                            <li>MySQL</li>\n" +
+                    "                            <li>MariaDB</li>\n" +
+                    "                            <li>RabbitMQ</li>\n" +
+                    "                            <li>Unit Testing</li>\n" +
+                    "                            <li>Prototyping</li>\n" +
+                    "                            <li>UX/UI Design</li>\n" +
+                    "                            <li>Computer Networking Protocols</li>\n" +
+                    "                        </ul>\n" +
+                    "                </div>\n" +
+                    "        </div>\n" +
+                    "    </div>").insertAfter("#colorBG2");
+            }
+        }
+    }
 
+    var timeOutFunctionId;
+    window.addEventListener("load", function() {
+       // do something
+        clearTimeout(timeOutFunctionId);
+        timeOutFunctionId = setTimeout(resizeFunction, 500);
+        width = $(window).width();
+    });
 </script>
+
+
 <script>
 if ( window.history.replaceState ) {
   window.history.replaceState( null, null, window.location.href );
@@ -547,7 +1177,7 @@ if ( window.history.replaceState ) {
  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
     AOS.init({
-        once: true,
+        once: true
     });
   </script>
   </body>
