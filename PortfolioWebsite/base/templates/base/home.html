@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Adalberto Garcia - Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-      <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300&display=swap" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
-      <link rel="icon" href="https://img.icons8.com/external-becris-lineal-color-becris/64/000000/external-computer-coding-programming-becris-lineal-color-becris.png">
-       <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://img.icons8.com/external-becris-lineal-color-becris/64/000000/external-computer-coding-programming-becris-lineal-color-becris.png">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
     <link href="{% static '/css/home.css' %}" rel="stylesheet" type="text/css">
+	<link href="css/hover-min.css" rel="stylesheet">
   </head>
 
   <body>
@@ -111,7 +112,7 @@
                     <p  data-aos="fade-up" data-aos-duration="1000" data-aos-delay="50">
                         <b> Socorro Independent School District – Pebble Hills High School</b>
                         <br><i>Teacher Intern/ Full-Time High School Biology Teacher</i>
-                        <br>Jan. 2019 – Dec. 2019
+                        <br>Jan. 2019 – Jan. 2020
                         <br><i>El Paso, TX</i>
                         <br>
                         <br>
@@ -168,6 +169,9 @@
                             <br>by combining HTML, CSS, JavaScript, Django,
                             <br>Bootstrap, and AOS.
                         </p>
+                        <a class="hvr-grow" target="_blank" href="https://github.com/otberalda/DjangoAppPortfolioWebsite">
+                        <img src="{% static '/images/github.png' %}" class="img-fluid" alt="github icon." id="github1">
+                        <a/><br>
                    <br>
                     <h2 id="after5">GPU Notification Bot</h2>
                     <p id="p2">Amongst the masses of consumers aiming to purchase
@@ -178,6 +182,9 @@
                         <br>various websites.
                         <br>Built using BeautifulSoup and Python.
                         </p>
+                        <a class="hvr-grow" target="_blank" href="https://github.com/otberalda/3080NotificationBot">
+                        <img src="{% static '/images/github.png' %}" class="img-fluid" alt="github icon." id="github2">
+                        </a><br>
                     </div>
             </div>
             <div data-aos="fade-right" data-aos-duration="1000" data-aos-delay="500" class="col-6" id="projectCoL2">
@@ -189,6 +196,9 @@
                            <br>standard commands associated with any given similar shell.
                            <br>Written in the C language.
                        </p>
+                       <a class="hvr-grow" target="_blank" href="https://github.com/otberalda/smallShell">
+                       <img src="{% static '/images/github.png' %}" class="img-fluid" alt="github icon." id="github3">
+                       </a><br>
                     <br>
                     <h2>Sudoku/Solution Verification Algorithm</h2>
                        <p id="p4">This game of Sudoku was implemented to explore
@@ -197,15 +207,21 @@
                            <br>game of Sudoku, upon which their solution will then be
                            <br>verified by the implemented verification algorithm.
                        </p>
+                       <a class="hvr-grow" target="_blank" href="https://github.com/otberalda/SudokuVerifierAlgorithm">
+                       <img src="{% static '/images/github.png' %}" class="img-fluid" alt="github icon." id="github4">
+                       </a><br>
                     <br>
-                    <h2>Grade Converter</h2>
-                       <p id="p5">This short project was made using a simple algorithm
-                           <br>to calculate grade point averages for high school
-                           <br>students who are dual-enrolled in college-level
-                           <br>courses. Program takes an input Excel sheet of grades to be
-                           <br>converted and proceeds to output an Excel sheet
-                           <br>populated with the converted grades.
-                       </p>
+                    <h2>Uniqify Mergesort</h2>
+                        <p id="p5">This project was made to compare efficiency of
+                            <br>multiprocessing and multithreading imlementations of a
+                            <br>mergesort. Users specify how many processes or threads to spawn
+                            <br>during execution and can compare runtimes depedning on the results.
+                            <br>Program utilizes pipes, system calls, and dynamic memory
+                            <br>allocation in the C language.
+                        </p>
+                       <a class="hvr-grow" target="_blank" href="https://github.com/otberalda/Uniqify">
+                       <img src="{% static '/images/github.png' %}" class="img-fluid" alt="github icon." id="github5">
+                       <a/><br>
                 </div>
             </div>
         </div>
@@ -327,7 +343,7 @@
                         "                    <p  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"50\">\n" +
                         "                        <b> Socorro Independent School District – Pebble Hills High School</b>\n" +
                         "                        <br><i>Teacher Intern/ Full-Time High School Biology Teacher</i>\n" +
-                        "                        <br>Jan. 2019 – Dec. 2019\n" +
+                        "                        <br>Jan. 2019 – Jan. 2020\n" +
                         "                        <br><i>El Paso, TX</i>\n" +
                         "                        <br>\n" +
                         "                        <br>\n" +
@@ -370,7 +386,10 @@
                         "                            <br>by combining HTML, CSS, JavaScript, Django,\n" +
                         "                            <br>Bootstrap, and AOS.\n" +
                         "                        </p>\n" +
-                        "                   <br>\n" +
+                        "                        <a class=\"hvr-grow\" target=\"_blank\" href=\"https://github.com/otberalda/DjangoAppPortfolioWebsite\">\n" +
+                        "                        <img  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"img-fluid\" id=\"github1\"  src=\"{% static '/images/github.png' %}\">\n" +
+                        "                        </a>\n<br>" +
+                        "                    <br><br>\n" +
                         "                    <h2 id=\"after5\">GPU Notification Bot</h2>\n" +
                         "                    <p id=\"p2\">Amongst the masses of consumers aiming to purchase\n" +
                         "                        <br> a graphics card in 2021, the GPU Notification Bot\n" +
@@ -380,7 +399,10 @@
                         "                        <br>various websites.\n" +
                         "                        <br>Built using BeautifulSoup and Python.\n" +
                         "                        </p>\n" +
-                        "                    </div>\n" +
+                        "                        <a class=\"hvr-grow\" target=\"_blank\" href=\"https://github.com/otberalda/3080NotificationBot\">\n" +
+                        "                        <img  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"img-fluid\" id=\"github2\"  src=\"{% static '/images/github.png' %}\">\n" +
+                        "                        </a>\n<br>" +
+                        "                     </div>\n" +
                         "            </div>\n" +
                         "            <div data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"350\" class=\"col-6\" id=\"projectCoL2\">\n" +
                         "                <div id=\"project3\">\n" +
@@ -391,7 +413,10 @@
                         "                           <br>standard commands associated with any given similar shell.\n" +
                         "                           <br>Written in the C language.\n" +
                         "                       </p>\n" +
-                        "                    <br>\n" +
+                        "                        <a class=\"hvr-grow\" target=\"_blank\" href=\"https://github.com/otberalda/smallShell\">\n" +
+                        "                        <img  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"img-fluid\" id=\"github3\"  src=\"{% static '/images/github.png' %}\">\n" +
+                        "                        </a>\n<br>" +
+                        "                     <br><br>\n" +
                         "                    <h2>Sudoku/Solution Verification Algorithm</h2>\n" +
                         "                       <p id=\"p4\">This game of Sudoku was implemented to explore\n" +
                         "                           <br>NP-Completeness, and time complexities of solution\n" +
@@ -399,16 +424,23 @@
                         "                           <br>game of Sudoku, upon which their solution will then be\n" +
                         "                           <br>verified by the implemented verification algorithm.\n" +
                         "                       </p>\n" +
-                        "                    <br>\n" +
-                        "                    <h2>Grade Converter</h2>\n" +
-                        "                       <p id=\"p5\">This short project was made using a simple algorithm\n" +
-                        "                           <br>to calculate grade point averages for high school\n" +
-                        "                           <br>students who are dual-enrolled in college-level\n" +
-                        "                           <br>courses. Program takes an input Excel sheet of grades to be\n" +
-                        "                           <br>converted and proceeds to output an Excel sheet\n" +
-                        "                           <br>populated with the converted grades.\n" +
+                        "                        <a class=\"hvr-grow\" target=\"_blank\" href=\"https://github.com/otberalda/SudokuVerifierAlgorithm\">\n" +
+                        "                        <img  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"img-fluid\" id=\"github4\"  src=\"{% static '/images/github.png' %}\">\n" +
+                        "                        </a>\n<br>" +
+                        "                     <br><br>\n" +
+                        "                    <h2>Uniquify Mergesort</h2>\n" +
+                        "                       <p id=\"p5\">This project was made to compare efficiency\n" +
+                        "                           <br>of multiprocessing and multithreading implementations\n" +
+                        "                           <br>of a mergesort. Users specify how many processes\n" +
+                        "                           <br> or threads to spawn during execution and can\n" +
+                        "                           <br>compare runtimes depending on the results. The program \n" +
+                        "                           <br>utilizes pipes, system calls, and dynamic memory\n" +
+                        "                           <br>allocation in the C language.\n" +
                         "                       </p>\n" +
-                        "                </div>\n" +
+                        "                        <a class=\"hvr-grow\" target=\"_blank\" href=\"https://github.com/otberalda/Uniquify\">\n" +
+                        "                        <img  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"img-fluid\" id=\"github5\"  src=\"{% static '/images/github.png' %}\">\n" +
+                        "                        </a><br>\n" +
+                        "                 <br></div>\n" +
                         "            </div>\n" +
                         "        </div>\n" +
                         "    </div>").insertAfter("#colorBG5");
@@ -471,7 +503,7 @@
                         "                    <p  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"50\">\n" +
                         "                        <b> Socorro Independent School District – Pebble Hills High School</b>\n" +
                         "                        <br><i>Teacher Intern/ Full-Time High School Biology Teacher</i>\n" +
-                        "                        <br>Jan. 2019 – Dec. 2019\n" +
+                        "                        <br>Jan. 2019 – Jan. 2020\n" +
                         "                        <br><i>El Paso, TX</i>\n" +
                         "                        <br>\n" +
                         "                        <br>\n" +
@@ -510,6 +542,9 @@
                         "                            <br> responsive by combining HTML, CSS, JavaScript, Django, " +
                         "                            <br>Bootstrap, and AOS." +
                         "                        </p>\n" +
+                        "                        <a class=\"hvr-grow\" target=\"_blank\" href=\"https://github.com/otberalda/DjangoAppPortfolioWebsite\">\n" +
+                        "                        <img  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"img-fluid\" id=\"github1\"  src=\"{% static '/images/github.png' %}\">\n" +
+                        "                        </a>\n<br>" +
                         "                    <br>\n" +
                         "                   <br>\n" +
                         "                    <h2 id=\"after5\"><b>GPU Notification Bot</b></h2>\n" +
@@ -521,6 +556,9 @@
                         "                        <br>various websites.\n" +
                         "                        <br>Built using BeautifulSoup and Python.\n" +
                         "                        </p>\n" +
+                        "                        <a class=\"hvr-grow\" target=\"_blank\" href=\"https://github.com/otberalda/3080NotificationBot\">\n" +
+                        "                        <img  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"img-fluid\" id=\"github2\"  src=\"{% static '/images/github.png' %}\">\n" +
+                        "                        </a>\n<br>" +
                         "                <br><br><h2><b>Small Shell</b></h2>\n" +
                         "                   <p id=\"p3\">The purpose of this project was to emulate a Bash shell in a\n" +
                         "                       <br>Linux/UNIX environment. The shell prompts users with the ':'\n" +
@@ -528,6 +566,9 @@
                         "                       <br>standard commands associated with any given similar shell.\n" +
                         "                       <br>Written in the C language.\n" +
                         "                   </p>\n" +
+                        "                        <a class=\"hvr-grow\" target=\"_blank\" href=\"https://github.com/otberalda/smallShell\">\n" +
+                        "                        <img  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"img-fluid\" id=\"github3\"  src=\"{% static '/images/github.png' %}\">\n" +
+                        "                        </a>\n<br>" +
                         "                <br>\n" +
                         "                <br>\n" +
                         "                <h2><b>Sudoku/Solution Verification Algorithm</b></h2>\n" +
@@ -537,16 +578,23 @@
                         "                       <br>game of Sudoku, upon which their solution will then be\n" +
                         "                       <br>verified by the implemented verification algorithm.\n" +
                         "                   </p>\n" +
+                        "                        <a class=\"hvr-grow\" target=\"_blank\" href=\"https://github.com/otberalda/SudokuVerifierAlgorithm\">\n" +
+                        "                        <img  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"img-fluid\" id=\"github4\"  src=\"{% static '/images/github.png' %}\">\n" +
+                        "                        </a>\n<br>" +
                         "                <br>\n" +
                         "                <br>\n" +
-                        "                <h2><b>Grade Converter</b></h2>\n" +
-                        "                   <p id=\"p5\">This short project was made using a simple algorithm\n" +
-                        "                       <br>to calculate grade point averages for high school\n" +
-                        "                       <br>students who are dual-enrolled in college-level\n" +
-                        "                       <br>courses. Program takes an input Excel sheet of grades to be\n" +
-                        "                       <br>converted and proceeds to output an Excel sheet\n" +
-                        "                       <br>populated with the converted grades.\n" +
-                        "                   </p>\n" +
+                        "                    <h2>Uniquify Mergesort</h2>\n" +
+                        "                       <p id=\"p5\">This project was made to compare efficiency\n" +
+                        "                           <br>of multiprocessing and multithreading implementations\n" +
+                        "                           <br>of a mergesort. Users specify how many processes\n" +
+                        "                           <br> or threads to spawn during execution and can\n" +
+                        "                           <br>compare runtimes depending on the results. The program \n" +
+                        "                           <br>utilizes pipes, system calls, and dynamic memory\n" +
+                        "                           <br>allocation in the C language.\n" +
+                        "                       </p>\n" +
+                        "                        <a class=\"hvr-grow\" target=\"_blank\" href=\"https://github.com/otberalda/Uniquify\">\n" +
+                        "                        <img  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"img-fluid\" id=\"github5\"  src=\"{% static '/images/github.png' %}\">\n" +
+                        "                        </a>\n<br>" +
                         "                </div>\n" +
                         "        </div>\n" +
                         "    </div>").insertAfter("#colorBG5");
@@ -572,6 +620,9 @@
                     "                            <br>by combining HTML, CSS, JavaScript, Django,\n" +
                     "                            <br>Bootstrap, and AOS.\n" +
                     "                        </p>\n" +
+                    "                        <a class=\"hvr-grow\" target=\"_blank\" href=\"https://github.com/otberalda/DjangoAppPortfolioWebsite\">\n" +
+                    "                        <img  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"img-fluid\" id=\"github1\"  src=\"{% static '/images/github.png' %}\">\n" +
+                    "                        </a>\n<br>" +
                     "                   <br>\n" +
                     "                    <h2 id=\"after5\">GPU Notification Bot</h2>\n" +
                     "                    <p id=\"p2\">Amongst the masses of consumers aiming to purchase\n" +
@@ -582,6 +633,9 @@
                     "                        <br>various websites.\n" +
                     "                        <br>Built using BeautifulSoup and Python.\n" +
                     "                        </p>\n" +
+                    "                        <a class=\"hvr-grow\" target=\"_blank\" href=\"https://github.com/otberalda/3080NotificationBot\">\n" +
+                    "                        <img  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"img-fluid\" id=\"github2\"  src=\"{% static '/images/github.png' %}\">\n" +
+                    "                        </a>\n<br>" +
                     "                    </div>\n" +
                     "            </div>\n" +
                     "            <div data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"350\" class=\"col-6\" id=\"projectCoL2\">\n" +
@@ -593,6 +647,9 @@
                     "                           <br>standard commands associated with any given similar shell.\n" +
                     "                           <br>Written in the C language.\n" +
                     "                       </p>\n" +
+                    "                        <a class=\"hvr-grow\" target=\"_blank\" href=\"https://github.com/otberalda/smallShell\">\n" +
+                    "                        <img  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"img-fluid\" id=\"github3\"  src=\"{% static '/images/github.png' %}\">\n" +
+                    "                        </a>\n<br>" +
                     "                    <br>\n" +
                     "                    <h2>Sudoku/Solution Verification Algorithm</h2>\n" +
                     "                       <p id=\"p4\">This game of Sudoku was implemented to explore\n" +
@@ -601,15 +658,22 @@
                     "                           <br>game of Sudoku, upon which their solution will then be\n" +
                     "                           <br>verified by the implemented verification algorithm.\n" +
                     "                       </p>\n" +
+                    "                        <a class=\"hvr-grow\" target=\"_blank\" href=\"https://github.com/otberalda/SudokuVerifierAlgorithm\">\n" +
+                    "                        <img  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"img-fluid\" id=\"github4\"  src=\"{% static '/images/github.png' %}\">\n" +
+                    "                        </a>\n<br>" +
                     "                    <br>\n" +
-                    "                    <h2>Grade Converter</h2>\n" +
-                    "                       <p id=\"p5\">This short project was made using a simple algorithm\n" +
-                    "                           <br>to calculate grade point averages for high school\n" +
-                    "                           <br>students who are dual-enrolled in college-level\n" +
-                    "                           <br>courses. Program takes an input Excel sheet of grades to be\n" +
-                    "                           <br>converted and proceeds to output an Excel sheet\n" +
-                    "                           <br>populated with the converted grades.\n" +
+                    "                    <h2>Uniquify Mergesort</h2>\n" +
+                    "                       <p id=\"p5\">This project was made to compare efficiency\n" +
+                    "                           <br>of multiprocessing and multithreading implementations\n" +
+                    "                           <br>of a mergesort. Users specify how many processes\n" +
+                    "                           <br> or threads to spawn during execution and can\n" +
+                    "                           <br>compare runtimes depending on the results. The program \n" +
+                    "                           <br>utilizes pipes, system calls, and dynamic memory\n" +
+                    "                           <br>allocation in the C language.\n" +
                     "                       </p>\n" +
+                    "                        <a class=\"hvr-grow\" target=\"_blank\" href=\"https://github.com/otberalda/Uniquify\">\n" +
+                    "                        <img data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"img-fluid\" id=\"github5\"  src=\"{% static '/images/github.png' %}\">\n" +
+                    "                        </a>\n<br>" +
                     "                </div>\n" +
                     "            </div>\n" +
                     "        </div>\n" +
@@ -665,7 +729,7 @@
                     "                    <p  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"50\">\n" +
                     "                        <b> Socorro Independent School District – Pebble Hills High School</b>\n" +
                     "                        <br><i>Teacher Intern/ Full-Time High School Biology Teacher</i>\n" +
-                    "                        <br>Jan. 2019 – Dec. 2019\n" +
+                    "                        <br>Jan. 2019 – Jan. 2020\n" +
                     "                        <br><i>El Paso, TX</i>\n" +
                     "                        <br>\n" +
                     "                        <br>\n" +
@@ -707,16 +771,13 @@
     }
 
     var timeOutFunctionId;
-    window.addEventListener('DOMContentLoaded',function(){
-        var width = $(window).width();
-         window.addEventListener("resize", function() {
-            if($(window).width() != width) {
-               // do something
-                clearTimeout(timeOutFunctionId);
-                timeOutFunctionId = setTimeout(resizeFunction, 500);
-                width = $(window).width();
-            }
-         });
+    var width = $(window).width();
+    window.addEventListener("resize", function() {
+        if($(window).width() != width) {
+            clearTimeout(timeOutFunctionId);
+            timeOutFunctionId = setTimeout(resizeFunction, 500);
+            width = $(window).width();
+        }
     });
 </script>
 
@@ -779,7 +840,7 @@
                         "                    <p  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"50\">\n" +
                         "                        <b> Socorro Independent School District – Pebble Hills High School</b>\n" +
                         "                        <br><i>Teacher Intern/ Full-Time High School Biology Teacher</i>\n" +
-                        "                        <br>Jan. 2019 – Dec. 2019\n" +
+                        "                        <br>Jan. 2019 – Jan. 2020\n" +
                         "                        <br><i>El Paso, TX</i>\n" +
                         "                        <br>\n" +
                         "                        <br>\n" +
@@ -822,6 +883,9 @@
                         "                            <br>by combining HTML, CSS, JavaScript, Django,\n" +
                         "                            <br>Bootstrap, and AOS.\n" +
                         "                        </p>\n" +
+                        "                        <a class=\"hvr-grow\" target=\"_blank\" href=\"https://github.com/otberalda/DjangoAppPortfolioWebsite\">\n" +
+                        "                        <img  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"img-fluid\" id=\"github1\"  src=\"{% static '/images/github.png' %}\">\n" +
+                        "                        </a>\n<br>" +
                         "                   <br>\n" +
                         "                    <h2 id=\"after5\">GPU Notification Bot</h2>\n" +
                         "                    <p id=\"p2\">Amongst the masses of consumers aiming to purchase\n" +
@@ -832,6 +896,9 @@
                         "                        <br>various websites.\n" +
                         "                        <br>Built using BeautifulSoup and Python.\n" +
                         "                        </p>\n" +
+                        "                        <a class=\"hvr-grow\" target=\"_blank\" href=\"https://github.com/otberalda/3080NotificationBot\">\n" +
+                        "                        <img  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"img-fluid\" id=\"github2\"  src=\"{% static '/images/github.png' %}\">\n" +
+                        "                        </a>\n<br>" +
                         "                    </div>\n" +
                         "            </div>\n" +
                         "            <div data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"350\" class=\"col-6\" id=\"projectCoL2\">\n" +
@@ -843,6 +910,9 @@
                         "                           <br>standard commands associated with any given similar shell.\n" +
                         "                           <br>Written in the C language.\n" +
                         "                       </p>\n" +
+                        "                        <a class=\"hvr-grow\" target=\"_blank\" href=\"https://github.com/otberalda/smallShell\">\n" +
+                        "                        <img  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"img-fluid\" id=\"github3\"  src=\"{% static '/images/github.png' %}\">\n" +
+                        "                        </a>\n<br>" +
                         "                    <br>\n" +
                         "                    <h2>Sudoku/Solution Verification Algorithm</h2>\n" +
                         "                       <p id=\"p4\">This game of Sudoku was implemented to explore\n" +
@@ -851,15 +921,22 @@
                         "                           <br>game of Sudoku, upon which their solution will then be\n" +
                         "                           <br>verified by the implemented verification algorithm.\n" +
                         "                       </p>\n" +
+                        "                        <a class=\"hvr-grow\" target=\"_blank\" href=\"https://github.com/otberalda/SudokuVerifierAlgorithm\">\n" +
+                        "                        <img  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"img-fluid\" id=\"github4\"  src=\"{% static '/images/github.png' %}\">\n" +
+                        "                        </a>\n<br>" +
                         "                    <br>\n" +
-                        "                    <h2>Grade Converter</h2>\n" +
-                        "                       <p id=\"p5\">This short project was made using a simple algorithm\n" +
-                        "                           <br>to calculate grade point averages for high school\n" +
-                        "                           <br>students who are dual-enrolled in college-level\n" +
-                        "                           <br>courses. Program takes an input Excel sheet of grades to be\n" +
-                        "                           <br>converted and proceeds to output an Excel sheet\n" +
-                        "                           <br>populated with the converted grades.\n" +
+                        "                    <h2>Uniquify Mergesort</h2>\n" +
+                        "                       <p id=\"p5\">This project was made to compare efficiency\n" +
+                        "                           <br>of multiprocessing and multithreading implementations\n" +
+                        "                           <br>of a mergesort. Users specify how many processes\n" +
+                        "                           <br> or threads to spawn during execution and can\n" +
+                        "                           <br>compare runtimes depending on the results. The program \n" +
+                        "                           <br>utilizes pipes, system calls, and dynamic memory\n" +
+                        "                           <br>allocation in the C language.\n" +
                         "                       </p>\n" +
+                        "                        <a class=\"hvr-grow\" target=\"_blank\" href=\"https://github.com/otberalda/Uniquify\">\n" +
+                        "                        <img  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"img-fluid\" id=\"github5\"  src=\"{% static '/images/github.png' %}\">\n" +
+                        "                        </a>\n<br>" +
                         "                </div>\n" +
                         "            </div>\n" +
                         "        </div>\n" +
@@ -923,7 +1000,7 @@
                         "                    <p  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"50\">\n" +
                         "                        <b> Socorro Independent School District – Pebble Hills High School</b>\n" +
                         "                        <br><i>Teacher Intern/ Full-Time High School Biology Teacher</i>\n" +
-                        "                        <br>Jan. 2019 – Dec. 2019\n" +
+                        "                        <br>Jan. 2019 – Jan. 2020\n" +
                         "                        <br><i>El Paso, TX</i>\n" +
                         "                        <br>\n" +
                         "                        <br>\n" +
@@ -962,6 +1039,9 @@
                         "                            <br> responsive by combining HTML, CSS, JavaScript, Django, " +
                         "                            <br>Bootstrap, and AOS." +
                         "                        </p>\n" +
+                        "                        <a class=\"hvr-grow\" target=\"_blank\" href=\"https://github.com/otberalda/DjangoAppPortfolioWebsite\">\n" +
+                        "                        <img  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"img-fluid\" id=\"github1\"  src=\"{% static '/images/github.png' %}\">\n" +
+                        "                        </a>\n<br>" +
                         "                    <br>\n" +
                         "                   <br>\n" +
                         "                    <h2 id=\"after5\"><b>GPU Notification Bot</b></h2>\n" +
@@ -973,6 +1053,9 @@
                         "                        <br>various websites.\n" +
                         "                        <br>Built using BeautifulSoup and Python.\n" +
                         "                        </p>\n" +
+                        "                        <a class=\"hvr-grow\" target=\"_blank\" href=\"https://github.com/otberalda/3080NotificationBot\">\n" +
+                        "                        <img  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"img-fluid\" id=\"github2\"  src=\"{% static '/images/github.png' %}\">\n" +
+                        "                        </a>\n<br>" +
                         "                <br><br><h2><b>Small Shell</b></h2>\n" +
                         "                   <p id=\"p3\">The purpose of this project was to emulate a Bash shell in a\n" +
                         "                       <br>Linux/UNIX environment. The shell prompts users with the ':'\n" +
@@ -980,6 +1063,9 @@
                         "                       <br>standard commands associated with any given similar shell.\n" +
                         "                       <br>Written in the C language.\n" +
                         "                   </p>\n" +
+                        "                        <a class=\"hvr-grow\" target=\"_blank\" href=\"https://github.com/otberalda/smallShell\">\n" +
+                        "                        <img  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"img-fluid\" id=\"github3\"  src=\"{% static '/images/github.png' %}\">\n" +
+                        "                        </a>\n<br>" +
                         "                <br>\n" +
                         "                <br>\n" +
                         "                <h2><b>Sudoku/Solution Verification Algorithm</b></h2>\n" +
@@ -989,16 +1075,23 @@
                         "                       <br>game of Sudoku, upon which their solution will then be\n" +
                         "                       <br>verified by the implemented verification algorithm.\n" +
                         "                   </p>\n" +
+                        "                        <a class=\"hvr-grow\" target=\"_blank\" href=\"https://github.com/otberalda/SudokuVerifierAlgorithm\">\n" +
+                        "                        <img  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"img-fluid\" id=\"github4\"  src=\"{% static '/images/github.png' %}\">\n" +
+                        "                        </a>\n<br>" +
                         "                <br>\n" +
                         "                <br>\n" +
-                        "                <h2><b>Grade Converter</b></h2>\n" +
-                        "                   <p id=\"p5\">This short project was made using a simple algorithm\n" +
-                        "                       <br>to calculate grade point averages for high school\n" +
-                        "                       <br>students who are dual-enrolled in college-level\n" +
-                        "                       <br>courses. Program takes an input Excel sheet of grades to be\n" +
-                        "                       <br>converted and proceeds to output an Excel sheet\n" +
-                        "                       <br>populated with the converted grades.\n" +
-                        "                   </p>\n" +
+                        "                    <h2><b>Uniquify Mergesort</b></h2>\n" +
+                        "                       <p id=\"p5\">This project was made to compare efficiency\n" +
+                        "                           <br>of multiprocessing and multithreading implementations\n" +
+                        "                           <br>of a mergesort. Users specify how many processes\n" +
+                        "                           <br> or threads to spawn during execution and can\n" +
+                        "                           <br>compare runtimes depending on the results. The program \n" +
+                        "                           <br>utilizes pipes, system calls, and dynamic memory\n" +
+                        "                           <br>allocation in the C language.\n" +
+                        "                       </p>\n" +
+                        "                        <a class=\"hvr-grow\" target=\"_blank\" href=\"https://github.com/otberalda/Uniquify\">\n" +
+                        "                        <img  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"img-fluid\" id=\"github5\"  src=\"{% static '/images/github.png' %}\">\n" +
+                        "                        </a>\n<br>" +
                         "                </div>\n" +
                         "        </div>\n" +
                         "    </div>").insertAfter("#colorBG5");
@@ -1024,6 +1117,9 @@
                     "                            <br>by combining HTML, CSS, JavaScript, Django,\n" +
                     "                            <br>Bootstrap, and AOS.\n" +
                     "                        </p>\n" +
+                    "                        <a class=\"hvr-grow\" target=\"_blank\" href=\"https://github.com/otberalda/DjangoAppPortfolioWebsite\">\n" +
+                    "                        <img  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"img-fluid\" id=\"github1\"  src=\"{% static '/images/github.png' %}\">\n" +
+                    "                        </a>\n<br>" +
                     "                   <br>\n" +
                     "                    <h2 id=\"after5\">GPU Notification Bot</h2>\n" +
                     "                    <p id=\"p2\">Amongst the masses of consumers aiming to purchase\n" +
@@ -1034,6 +1130,9 @@
                     "                        <br>various websites.\n" +
                     "                        <br>Built using BeautifulSoup and Python.\n" +
                     "                        </p>\n" +
+                    "                        <a class=\"hvr-grow\" target=\"_blank\" href=\"https://github.com/otberalda/3080NotificationBot\">\n" +
+                    "                        <img  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"img-fluid\" id=\"github2\"  src=\"{% static '/images/github.png' %}\">\n" +
+                    "                        </a>\n<br>" +
                     "                    </div>\n" +
                     "            </div>\n" +
                     "            <div data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"350\" class=\"col-6\" id=\"projectCoL2\">\n" +
@@ -1045,6 +1144,9 @@
                     "                           <br>standard commands associated with any given similar shell.\n" +
                     "                           <br>Written in the C language.\n" +
                     "                       </p>\n" +
+                    "                        <a class=\"hvr-grow\" target=\"_blank\" href=\"https://github.com/otberalda/smallShell\">\n" +
+                    "                        <img  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"img-fluid\" id=\"github3\"  src=\"{% static '/images/github.png' %}\">\n" +
+                    "                        </a>\n<br>" +
                     "                    <br>\n" +
                     "                    <h2>Sudoku/Solution Verification Algorithm</h2>\n" +
                     "                       <p id=\"p4\">This game of Sudoku was implemented to explore\n" +
@@ -1053,15 +1155,22 @@
                     "                           <br>game of Sudoku, upon which their solution will then be\n" +
                     "                           <br>verified by the implemented verification algorithm.\n" +
                     "                       </p>\n" +
+                    "                        <a class=\"hvr-grow\" target=\"_blank\" href=\"https://github.com/otberalda/SudokuVerifierAlgorithm\">\n" +
+                    "                        <img  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"img-fluid\" id=\"github4\"  src=\"{% static '/images/github.png' %}\">\n" +
+                    "                        </a>\n<br>" +
                     "                    <br>\n" +
-                    "                    <h2>Grade Converter</h2>\n" +
-                    "                       <p id=\"p5\">This short project was made using a simple algorithm\n" +
-                    "                           <br>to calculate grade point averages for high school\n" +
-                    "                           <br>students who are dual-enrolled in college-level\n" +
-                    "                           <br>courses. Program takes an input Excel sheet of grades to be\n" +
-                    "                           <br>converted and proceeds to output an Excel sheet\n" +
-                    "                           <br>populated with the converted grades.\n" +
+                    "                    <h2>Uniquify Mergesort</h2>\n" +
+                    "                       <p id=\"p5\">This project was made to compare efficiency\n" +
+                    "                           <br>of multiprocessing and multithreading implementations\n" +
+                    "                           <br>of a mergesort. Users specify how many processes\n" +
+                    "                           <br> or threads to spawn during execution and can\n" +
+                    "                           <br>compare runtimes depending on the results. The program \n" +
+                    "                           <br>utilizes pipes, system calls, and dynamic memory\n" +
+                    "                           <br>allocation in the C language.\n" +
                     "                       </p>\n" +
+                    "                        <a class=\"hvr-grow\" target=\"_blank\" href=\"https://github.com/otberalda/Uniquify\">\n" +
+                    "                        <img  data-aos=\"fade-right\" data-aos-duration=\"1000\" data-aos-delay=\"100\" class=\"img-fluid\" id=\"github5\"  src=\"{% static '/images/github.png' %}\">\n" +
+                    "                        </a>\n<br>" +
                     "                </div>\n" +
                     "            </div>\n" +
                     "        </div>\n" +
@@ -1117,7 +1226,7 @@
                     "                    <p  data-aos=\"fade-up\" data-aos-duration=\"1000\" data-aos-delay=\"50\">\n" +
                     "                        <b> Socorro Independent School District – Pebble Hills High School</b>\n" +
                     "                        <br><i>Teacher Intern/ Full-Time High School Biology Teacher</i>\n" +
-                    "                        <br>Jan. 2019 – Dec. 2019\n" +
+                    "                        <br>Jan. 2019 – Jan. 2020\n" +
                     "                        <br><i>El Paso, TX</i>\n" +
                     "                        <br>\n" +
                     "                        <br>\n" +
@@ -1160,10 +1269,8 @@
 
     var timeOutFunctionId;
     window.addEventListener("load", function() {
-       // do something
         clearTimeout(timeOutFunctionId);
         timeOutFunctionId = setTimeout(resizeFunction, 500);
-        width = $(window).width();
     });
 </script>
 
